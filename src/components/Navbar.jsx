@@ -6,22 +6,28 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   return (
     <nav>
       {/* submit an event banner */}
-      <div className="bg-(--secondary-bg) pr-6 items-center justify-center figtree relative py-[15px] hidden lg:flex">
-        <p className="">
-          Help us by submitting your events{" "}
-          <span className="font-bold underline cursor-pointer">
-            Submit an event
-          </span>
-        </p>
+      {showBanner && (
+        <div className="bg-(--secondary-bg) pr-6 items-center justify-center figtree relative py-[15px] hidden lg:flex">
+          <p className="">
+            Help us by submitting your events{" "}
+            <span className="font-bold underline cursor-pointer">
+              Submit an event
+            </span>
+          </p>
 
-        <div className="absolute right-6">
-          <Image src="close.svg" width={18} height={18} alt="cancel" />
+          <div
+            className="absolute right-6 cursor-pointer"
+            onClick={() => setShowBanner(false)}
+          >
+            <Image src="close.svg" width={18} height={18} alt="cancel" />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* nav links */}
       <div

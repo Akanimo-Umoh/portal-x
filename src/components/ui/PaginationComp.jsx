@@ -8,7 +8,11 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export default function PaginationComp({ currentPage, totalPages, setCurrentPage }) {
+export default function PaginationComp({
+  currentPage,
+  totalPages,
+  setCurrentPage,
+}) {
   const renderPages = () => {
     const pages = [];
 
@@ -18,7 +22,9 @@ export default function PaginationComp({ currentPage, totalPages, setCurrentPage
         <PaginationLink
           isActive={currentPage === 1}
           onClick={() => setCurrentPage(1)}
-          className={currentPage === 1 ? "bg-(--primary-color)" : ""}
+          className={
+            currentPage === 1 ? "bg-[var(--primary-color)] border-none cursor-pointer" : "cursor-pointer"
+          }
         >
           1
         </PaginationLink>
@@ -44,7 +50,9 @@ export default function PaginationComp({ currentPage, totalPages, setCurrentPage
           <PaginationLink
             isActive={currentPage === i}
             onClick={() => setCurrentPage(i)}
-            className={currentPage === i ? "bg-(--primary-color)" : ""}
+            className={
+              currentPage === i ? "bg-[var(--primary-color)] cursor-pointer border-none" : "cursor-pointer"
+            }
           >
             {i}
           </PaginationLink>
@@ -68,7 +76,11 @@ export default function PaginationComp({ currentPage, totalPages, setCurrentPage
           <PaginationLink
             isActive={currentPage === totalPages}
             onClick={() => setCurrentPage(totalPages)}
-            className={currentPage === totalPages ? "bg-(--primary-color) border-none" : ""}
+            className={
+              currentPage === totalPages
+                ? "bg-[var(--primary-color)] border-none cursor-pointer"
+                : "cursor-pointer"
+            }
           >
             {totalPages}
           </PaginationLink>
@@ -85,6 +97,7 @@ export default function PaginationComp({ currentPage, totalPages, setCurrentPage
         {/* Previous */}
         <PaginationItem>
           <PaginationPrevious
+            className="cursor-pointer"
             onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
             aria-disabled={currentPage === 1}
           />
@@ -95,7 +108,10 @@ export default function PaginationComp({ currentPage, totalPages, setCurrentPage
         {/* Next */}
         <PaginationItem>
           <PaginationNext
-            onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}
+            className="cursor-pointer"
+            onClick={() =>
+              currentPage < totalPages && setCurrentPage(currentPage + 1)
+            }
             aria-disabled={currentPage === totalPages}
           />
         </PaginationItem>
