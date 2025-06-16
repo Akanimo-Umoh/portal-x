@@ -20,7 +20,7 @@ function Search({ search, setSearch, focused, setFocused, onSubmit }) {
 
   return (
     <div className="mr-auto ml-auto flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[340px] sm:w-[358px] sm:px-5 lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px] small-screenSearch">
-      <label for="search">
+      <label htmlFor="search">
         <Image
           src="search.svg"
           width={17}
