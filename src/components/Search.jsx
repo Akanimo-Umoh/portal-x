@@ -69,8 +69,8 @@ function List({ items, setSearch, onSubmit }) {
 
   return (
     <div className="relative flex items-center justify-center w-full z-50">
-      <div className="w-full ml-auto mr-auto mt-[33px] absolute top-0 bg-(--background) overflow-y-auto pb-8 small-screenRecent">
-        <p className="text-[14px] font-semibold text-(--primary-color) jakarta w-[358px] lg:w-[647px] ml-auto mr-auto pl-5 small-screenRecent">
+      <div className="w-full ml-auto mr-auto mt-[33px] absolute top-0 bg-(--background) overflow-y-auto pb-8 small-screenRecent lg:max-h-[300px] lg:max-w-[700px] lg:rounded-[10px] shadow-md">
+        <p className="text-[14px] font-semibold text-(--primary-color) jakarta w-[358px] lg:w-[647px] ml-auto mr-auto pl-5 small-screenRecent lg:text-left">
           Recent Searches
         </p>
 
@@ -90,7 +90,10 @@ function List({ items, setSearch, onSubmit }) {
               />
               <p
                 className="w-full cursor-pointer pl-7"
-                onClick={() => setSearch(event.title)}
+                onClick={() => {
+                  setSearch(event.title);
+                  onSubmit(event.title);
+                }}
               >
                 {event.title}
               </p>
