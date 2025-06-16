@@ -191,3 +191,65 @@
     border-right: 1px solid rgb(73, 88, 112);
   }
 }
+
+@media (min-width: 320px) and (max-width: 375px) {
+  .small-screenSearch {
+    @apply w-[300px];
+  }
+
+  .small-screenRecent {
+    @apply w-[300px];
+  }
+
+  .small-card {
+    @apply w-[300px];
+  }
+
+  .events-ctn {
+    @apply w-[300px] pr-0;
+  }
+
+  .events-ctnImg {
+    @apply mr-3;
+  }
+
+  .eventsDescription {
+    @apply min-w-[130px] w-[130px];
+  }
+}
+
+@media (min-width: 440px) and (max-width: 768px) {
+  .eventCard {
+    @apply flex-col w-[200px] pb-[10px] pr-0;
+  }
+  
+  .mdCard {
+    @apply flex-row w-[420px] justify-between gap-[2%];
+  }
+
+  .mdCardCtn {
+    @apply w-[200px];
+  }
+
+  .events-ctnImg {
+    @apply w-[200px] mr-0;
+  }
+
+  .cardImg {
+    @apply w-[200px] h-auto rounded-none rounded-t-[20px];
+  }
+
+  .descriptionBox {
+    @apply mt-2 mb-2;
+  }
+
+  .mediumCenter {
+    @apply text-center;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .mdCard {
+    @apply gap-[0.1%] w-[500px];
+  }
+}

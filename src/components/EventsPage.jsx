@@ -18,14 +18,14 @@ export default function EventsPage() {
 
   return (
     <div>
-      <div className="border-t border-(--border-col) ml-auto mr-auto mt-[24.8px] pt-5 w-[359px] flex flex-col lg:flex-row lg:gap-10 flex-wrap items-center justify-center lg:ml-[66px] lg:mr-[73px] lg:mt-[60px] lg:pt-[66px] lg:w-auto md:w-[740px] md:justify-between md:flex-row md:gap-2.5">
+      <div className="border-t border-(--border-col) ml-auto mr-auto mt-[24.8px] pt-5 w-[359px] flex flex-col lg:flex-row lg:gap-10 flex-wrap items-center justify-center lg:ml-[66px] lg:mr-[73px] lg:mt-[60px] lg:pt-[66px] lg:w-auto md:w-[740px] md:justify-between md:flex-row md:gap-2.5 small-card mdCard">
         <p className="text-(--primary-color) text-[22.27px] font-medium w-full jakarta hidden lg:block mb-[15px]">
           Upcoming Events
         </p>
 
         {currentEvents.map((event, index) => (
           <div
-            className="mb-7.5 lg:mb-[32px] w-[359px] ml-auto mr-auto lg:w-[407px] lg:h-full lg:flex lg:flex-col lg:justify-evenly"
+            className="mb-7.5 lg:mb-[32px] w-[359px] ml-auto mr-auto lg:w-[407px] lg:h-full lg:flex lg:flex-col lg:justify-evenly small-card mdCardCtn"
             key={index}
           >
             {/* date container */}
@@ -39,20 +39,20 @@ export default function EventsPage() {
             </div>
 
             {/* events container */}
-            <div className="rounded-3xl mt-3 flex items-center justify-between bg-(--dark-bg) pr-[27px] lg:w-full lg:max-w-[407px] lg:flex-col lg:pt-2.5 lg:pl-2.5 lg:pr-2.5 lg:mt-[33px] lg:gap-[31px] lg:items-center lg:h-full lg:justify-evenly">
-              <div className="flex-1 min-w-[142px] lg:flex lg:justify-center lg:items-center lg:min-w-[388px] lg:h-[217px] mr-6 lg:mr-0 lg:overflow-hidden lg:rounded-[20px] lg:flex-none">
+            <div className="rounded-3xl mt-3 flex items-center justify-between bg-(--dark-bg) pr-[27px] lg:w-full lg:max-w-[407px] lg:flex-col lg:pt-2.5 lg:pl-2.5 lg:pr-2.5 lg:mt-[33px] lg:gap-[31px] lg:items-center lg:h-full lg:justify-evenly events-ctn eventCard">
+              <div className="flex-1 min-w-[142px] lg:flex lg:justify-center lg:items-center lg:min-w-[388px] lg:h-[217px] mr-6 lg:mr-0 lg:overflow-hidden lg:rounded-[20px] lg:flex-none events-ctnImg">
                 <Image
                   src={event.image}
                   width={142}
                   height={127}
                   alt="Event Image"
-                  className="rounded-l-3xl min-h-[127px] lg:w-full lg:h-full lg:object-cover lg:object-top"
+                  className="rounded-l-3xl min-h-[127px] lg:w-full lg:h-full lg:object-cover lg:object-top cardImg"
                   priority
                 />
               </div>
 
-              <div className="jakarta min-w-[165px] lg:max-w-[362px] flex-1 lg:min-h-[153px] lg:mb-[29px]">
-                <div className="w-[165px] lg:w-auto lg:min-h-[153px] lg:flex lg:flex-col lg:justify-between">
+              <div className="jakarta min-w-[165px] lg:max-w-[362px] flex-1 lg:min-h-[153px] lg:mb-[29px] eventsDescription">
+                <div className="w-[165px] lg:w-auto lg:min-h-[153px] lg:flex lg:flex-col lg:justify-between eventsDescription descriptionBox">
                   <div className="lg:flex lg:flex-col lg:h-[120px] lg:justify-start gap-[15px]">
                     <p className="text-[15px] text-(--primary-text) lg:hidden font-bold line-clamp-2">
                       {event.title}

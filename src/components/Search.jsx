@@ -19,7 +19,7 @@ function Search({ search, setSearch, focused, setFocused, onSubmit }) {
   };
 
   return (
-    <div className="mr-auto ml-auto flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[340px] sm:w-[358px] sm:px-5 lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px]">
+    <div className="mr-auto ml-auto flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[340px] sm:w-[358px] sm:px-5 lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px] small-screenSearch">
       <label for="search">
         <Image
           src="search.svg"
@@ -60,8 +60,8 @@ function Search({ search, setSearch, focused, setFocused, onSubmit }) {
 function List({ items, setSearch, onSubmit }) {
   if (items.length === 0)
     return (
-      <div className="relative flex items-center justify-center">
-        <div className="text-white w-[358px] lg:w-[647px] ml-auto mr-auto text-center absolute mt-8">
+      <div className="relative flex items-center justify-center small-screenRecent">
+        <div className="text-white w-[358px] lg:w-[647px] ml-auto mr-auto text-center absolute mt-8 small-screenRecent">
           No result
         </div>
       </div>
@@ -69,12 +69,12 @@ function List({ items, setSearch, onSubmit }) {
 
   return (
     <div className="relative flex items-center justify-center w-full z-50">
-      <div className="w-full ml-auto mr-auto mt-[33px] absolute top-0 bg-(--background) overflow-y-auto pb-8">
-        <p className="text-[14px] font-semibold text-(--primary-color) jakarta w-[358px] lg:w-[647px] ml-auto mr-auto pl-5">
+      <div className="w-full ml-auto mr-auto mt-[33px] absolute top-0 bg-(--background) overflow-y-auto pb-8 small-screenRecent">
+        <p className="text-[14px] font-semibold text-(--primary-color) jakarta w-[358px] lg:w-[647px] ml-auto mr-auto pl-5 small-screenRecent">
           Recent Searches
         </p>
 
-        <ul className="text-(--primary-text) mt-[22px] text-[15px] w-[358px] lg:w-[647px] ml-auto mr-auto jakarta space-y-[23px] pl-5 pr-5">
+        <ul className="text-(--primary-text) mt-[22px] text-[15px] w-[358px] lg:w-[647px] ml-auto mr-auto jakarta space-y-[23px] pl-5 pr-5 small-screenRecent">
           {items.map((event, index) => (
             <li key={index} className="flex items-center justify-between">
               <Image
