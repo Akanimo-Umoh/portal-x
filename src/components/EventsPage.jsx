@@ -6,7 +6,7 @@ import { useState } from "react";
 import events from "./events";
 
 export default function EventsPage() {
-  const eventsPerPage = 4;
+  const eventsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(events.length / eventsPerPage);
