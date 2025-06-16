@@ -19,24 +19,27 @@ function Search({ search, setSearch, focused, setFocused, onSubmit }) {
   };
 
   return (
-    <div className="mr-auto ml-auto flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[358px] lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px]">
-      <Image
-        src="search.svg"
-        width={17}
-        height={17}
-        alt="search"
-        className="lg:w-[30px] lg:h-[30px]"
-      />
+    <div className="mr-auto ml-auto flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[340px] sm:w-[358px] sm:px-5 lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px]">
+      <label for="search">
+        <Image
+          src="search.svg"
+          width={17}
+          height={17}
+          alt="search"
+          className="lg:w-[30px] lg:h-[30px]"
+        />
+      </label>
 
       <input
         type="text"
+        id="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search events near you—by vibe, city, or name..."
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
         onKeyDown={handleKeyDown}
-        className="pt-3.5 pb-4 w-full placeholder:text-[11px] lg:text-[20px] placeholder-(--placeholder-color) focus:outline-none lg:placeholder:text-[20px] lg:pt-[27px] lg:pb-[24px]"
+        className="jakarta font-medium pt-3.5 pb-4 w-full placeholder:text-[11px] lg:text-[20px] placeholder-(--placeholder-color) focus:outline-none lg:placeholder:text-[21px] lg:pt-[27px] lg:pb-[24px] placeholder:font-[jakarta] placeholder:font-medium"
       />
 
       {focused && search && (
@@ -54,7 +57,7 @@ function Search({ search, setSearch, focused, setFocused, onSubmit }) {
   );
 }
 
-function List({ items }) {
+function List({ items, setSearch, onSubmit }) {
   if (items.length === 0)
     return (
       <div className="relative flex items-center justify-center">
@@ -67,11 +70,11 @@ function List({ items }) {
   return (
     <div className="relative flex items-center justify-center w-full z-50">
       <div className="w-full ml-auto mr-auto mt-[33px] absolute top-0 bg-(--background) overflow-y-auto pb-8">
-        <p className="text-[14px] font-semibold text-(--primary-color) jakarta w-[358px] lg:w-[647px] ml-auto mr-auto">
+        <p className="text-[14px] font-semibold text-(--primary-color) jakarta w-[358px] lg:w-[647px] ml-auto mr-auto pl-5">
           Recent Searches
         </p>
 
-        <ul className="text-(--primary-text) mt-[22px] text-[15px] w-[358px] lg:w-[647px] ml-auto mr-auto jakarta space-y-[23px]">
+        <ul className="text-(--primary-text) mt-[22px] text-[15px] w-[358px] lg:w-[647px] ml-auto mr-auto jakarta space-y-[23px] pl-5 pr-5">
           {items.map((event, index) => (
             <li key={index} className="flex items-center justify-between">
               <Image
@@ -79,9 +82,26 @@ function List({ items }) {
                 width={20}
                 height={20}
                 alt="recent"
+                className="cursor-pointer"
+                onClick={() => {
+                  setSearch(event.title);
+                  onSubmit(event.title);
+                }}
               />
-              <p className="w-full cursor-pointer pl-7">{event.title}</p>
-              <Image src="/upArrow.svg" width={20} height={20} alt="search" />
+              <p
+                className="w-full cursor-pointer pl-7"
+                onClick={() => setSearch(event.title)}
+              >
+                {event.title}
+              </p>
+              <Image
+                src="/upArrow.svg"
+                width={20}
+                height={20}
+                alt="search"
+                className="cursor-pointer"
+                onClick={() => setSearch(event.title)}
+              />
             </li>
           ))}
         </ul>
@@ -125,9 +145,23 @@ export default function SearchEvents() {
       />
 
       {focused && !search && (
-        <List items={recentSearches.map((title) => ({ title }))} />
+        <List
+          items={recentSearches.map((title) => ({ title }))}
+          setSearch={setSearch}
+          onSubmit={(query) => {
+            setSearch(query);
+            saveRecentSearch(query);
+          }}
+        />
       )}
-      {search && <List items={filteredEvernts} />}
+
+      {search && (
+        <List
+          items={filteredEvernts}
+          setSearch={setSearch}
+          onSubmit={handleSearchSubmit}
+        />
+      )}
     </div>
   );
 }

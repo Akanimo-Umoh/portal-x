@@ -23,7 +23,7 @@ export default function PaginationComp({
           isActive={currentPage === 1}
           onClick={() => setCurrentPage(1)}
           className={
-            currentPage === 1 ? "bg-[var(--primary-color)] border-none cursor-pointer" : "cursor-pointer"
+            currentPage === 1 ? "bg-[var(--primary-color)] border-none cursor-pointer pagination-active rounded-none" : "cursor-pointer pItems rounded-none"
           }
         >
           1
@@ -35,7 +35,7 @@ export default function PaginationComp({
     if (currentPage > 3) {
       pages.push(
         <PaginationItem key="start-ellipsis">
-          <PaginationEllipsis />
+          <PaginationEllipsis className="pItems rounded-none" />
         </PaginationItem>
       );
     }
@@ -51,7 +51,7 @@ export default function PaginationComp({
             isActive={currentPage === i}
             onClick={() => setCurrentPage(i)}
             className={
-              currentPage === i ? "bg-[var(--primary-color)] cursor-pointer border-none" : "cursor-pointer"
+              currentPage === i ? "bg-[var(--primary-color)] cursor-pointer border-none pagination-active rounded-none" : "cursor-pointer pItems rounded-none"
             }
           >
             {i}
@@ -64,7 +64,7 @@ export default function PaginationComp({
     if (currentPage < totalPages - 2) {
       pages.push(
         <PaginationItem key="end-ellipsis">
-          <PaginationEllipsis />
+          <PaginationEllipsis className="pItems rounded-none" />
         </PaginationItem>
       );
     }
@@ -78,8 +78,8 @@ export default function PaginationComp({
             onClick={() => setCurrentPage(totalPages)}
             className={
               currentPage === totalPages
-                ? "bg-[var(--primary-color)] border-none cursor-pointer"
-                : "cursor-pointer"
+                ? "bg-[var(--primary-color)] cursor-pointer pagination-active rounded-none"
+                : "cursor-pointer pItems rounded-none"
             }
           >
             {totalPages}
@@ -93,11 +93,11 @@ export default function PaginationComp({
 
   return (
     <Pagination className="w-full justify-center mt-5 pagination">
-      <PaginationContent className="bg-(--page-bg) jakarta rounded-[12px]">
+      <PaginationContent className="bg-[#1E293B] jakarta rounded-[12px] pBorders p-0 m-0 gap-0 border border-[#495870]">
         {/* Previous */}
         <PaginationItem>
           <PaginationPrevious
-            className="cursor-pointer"
+            className="cursor-pointer pItems rounded-none"
             onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
             aria-disabled={currentPage === 1}
           />

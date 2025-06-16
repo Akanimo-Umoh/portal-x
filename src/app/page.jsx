@@ -1,4 +1,4 @@
-import Events from "@/components/Events";
+import Events from "@/components/EventsPage";
 import Search from "@/components/Search";
 import Image from "next/image";
 
@@ -21,7 +21,7 @@ export default function Home() {
             </div> */}
             <Search />
 
-            <div className="jakarta ml-6 mr-9 mt-[33px] lg:mt-[54px]">
+            <div className="jakarta ml-6 mr-9 mt-[33px] lg:mt-[54px] sm:text-center">
               <div>
                 <p className="text-(--primary-color) text-lg font-bold lg:hidden">
                   Find your people. Come outside!

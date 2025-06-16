@@ -178,5 +178,16 @@
 
   .pagination-active {
     background: var(--primary-color);
+    color: rgba(37, 43, 55, 1);
+    @apply rounded-none;
+  }
+
+  .pBorders {
+    filter: drop-shadow(0px 1.07857px 2.15714px rgba(10, 13, 18, 0.05));
+    backdrop-filter: blur(6px);
+  }
+
+  .pItems {
+    border-right: 1px solid rgb(73, 88, 112);
   }
 }
