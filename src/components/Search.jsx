@@ -105,15 +105,15 @@ export default function Login() {
 
         {/* search query results */}
         {query && (
-          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)]">
-            <div className="space-y-[23px] absolute top-0 bg-[var(--background)] w-full flex flex-col items-center justify-center pt-4 pb-4">
+          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] lg:w-[647px]">
+            <div className="space-y-[23px] absolute top-0 bg-[var(--background)] max-h-[500px] w-full flex flex-col items-center justify-between pt-4 pb-4 lg:pl-[41px] lg:pr-[41px] lg:pb-[45px] lg:pt-[45px]  lg:rounded-[29px] lg:h-[640px] overflow-y-auto lg:mt-2.5 hideScroll">
               {events
                 .filter((event) => event.title.toLowerCase().includes(query))
                 .map((event, index) => {
                   return (
                     <div
                       key={index}
-                      className="hover:underline text-[var(--primary-text)] flex items-center justify-between w-[340px] sm:w-[358px] lg:w-[647px] small-screenRecent"
+                      className="hover:underline text-[var(--primary-text)] flex items-center justify-between w-[340px] sm:w-[358px] lg:w-full small-screenRecent"
                     >
                       <Image
                         src="/recentSearch.svg"
@@ -157,57 +157,57 @@ export default function Login() {
 
         {/* recent search cotn */}
         {!query && focused && recentSearches.length > 0 && (
-        <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] h-full">
-          <div className="absolute top-0 bg-[var(--background)] w-full flex items-center justify-center">
-            <div className="w-[340px] font-semibold sm:w-[358px] lg:w-[647px] small-screenRecent pt-4 pb-4">
-              <p className="text-[var(--primary-color)] text-sm lg:text-[18px] mb-2 jakarta">
-                Recent Search
-              </p>
-              <div className="space-y-[23px] w-full flex flex-col items-center justify-center pt-4 pb-4">
-                {recentSearches.map((search, index) => (
-                <div
-                  key={index}
-                  className="cursor-pointer hover:underline text-[var(--primary-text)] flex items-center justify-between w-full"
-                >
-                  <Image
-                    src="/recentSearch.svg"
-                    width={20}
-                    height={20}
-                    alt="recent"
-                    onClick={() => {
-                      handleSubmit(null, search);
-                      inputRef.current?.blur();
-                    }}
-                    className="cursor-pointer"
-                  />
+          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] h-full">
+            <div className="absolute top-0 bg-[var(--background)] w-full flex items-center justify-center">
+              <div className="w-[340px] font-semibold sm:w-[358px] lg:w-[647px] small-screenRecent pt-4 pb-4">
+                <p className="text-[var(--primary-color)] text-sm lg:text-[18px] mb-2 jakarta lg:text-left">
+                  Recent Search
+                </p>
+                <div className="space-y-[23px] w-full flex flex-col items-center justify-center pt-4 pb-4">
+                  {recentSearches.map((search, index) => (
+                    <div
+                      key={index}
+                      className="cursor-pointer hover:underline text-[var(--primary-text)] flex items-center justify-between w-full"
+                    >
+                      <Image
+                        src="/recentSearch.svg"
+                        width={20}
+                        height={20}
+                        alt="recent"
+                        onClick={() => {
+                          handleSubmit(null, search);
+                          inputRef.current?.blur();
+                        }}
+                        className="cursor-pointer"
+                      />
 
-                  <p
-                    onClick={() => {
-                      handleSubmit(null, search);
-                      inputRef.current?.blur();
-                    }}
-                    className="w-full pl-[22px] text-sm font-medium flex items-center justify-start lg:text-[18px] jakarta"
-                  >
-                    {search}
-                  </p>
+                      <p
+                        onClick={() => {
+                          handleSubmit(null, search);
+                          inputRef.current?.blur();
+                        }}
+                        className="w-full pl-[22px] text-sm font-medium flex items-center justify-start lg:text-[18px] jakarta"
+                      >
+                        {search}
+                      </p>
 
-                  <Image
-                    src="/upArrow.svg"
-                    width={20}
-                    height={20}
-                    alt="search"
-                    className="cursor-pointer"
-                    onClick={() => {
-                      setQuery(search);
-                      inputRef.current?.focus();
-                    }}
-                  />
+                      <Image
+                        src="/upArrow.svg"
+                        width={20}
+                        height={20}
+                        alt="search"
+                        className="cursor-pointer"
+                        onClick={() => {
+                          setQuery(search);
+                          inputRef.current?.focus();
+                        }}
+                      />
+                    </div>
+                  ))}
                 </div>
-                ))}
               </div>
             </div>
           </div>
-        </div>
         )}
       </form>
     </div>
