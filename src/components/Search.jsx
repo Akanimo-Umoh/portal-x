@@ -105,8 +105,8 @@ export default function Login() {
 
         {/* search query results */}
         {query && (
-          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] lg:w-[647px]">
-            <div className="space-y-[23px] absolute top-0 bg-[var(--background)] max-h-[500px] w-full flex flex-col items-center justify-between pt-4 pb-4 lg:pl-[41px] lg:pr-[41px] lg:pb-[45px] lg:pt-[45px]  lg:rounded-[29px] lg:h-[640px] overflow-y-auto lg:mt-2.5 hideScroll">
+          <div className="w-full relative flex flex-col items-center justify-center bg-[var(--background)] lg:w-[647px] transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in">
+            <div className="space-y-[23px] absolute top-0 bg-[var(--background)] max-h-[500px] w-full flex flex-col items-center justify-between pt-4 pb-4 lg:pl-[41px] lg:pr-[41px] lg:pb-[45px] lg:pt-[45px]  lg:rounded-[29px] lg:h-[640px] overflow-y-auto lg:mt-2.5 hideScroll shadow-md">
               {events
                 .filter((event) => event.title.toLowerCase().includes(query))
                 .map((event, index) => {
@@ -157,7 +157,7 @@ export default function Login() {
 
         {/* recent search cotn */}
         {!query && focused && recentSearches.length > 0 && (
-          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] h-full">
+          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] h-full transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in">
             <div className="absolute top-0 bg-[var(--background)] w-full flex items-center justify-center">
               <div className="w-[340px] font-semibold sm:w-[358px] lg:w-[647px] small-screenRecent pt-4 pb-4">
                 <p className="text-[var(--primary-color)] text-sm lg:text-[18px] mb-2 jakarta lg:text-left">
