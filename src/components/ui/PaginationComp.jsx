@@ -23,7 +23,9 @@ export default function PaginationComp({
           isActive={currentPage === 1}
           onClick={() => setCurrentPage(1)}
           className={
-            currentPage === 1 ? "bg-[var(--primary-color)] border-none cursor-pointer pagination-active rounded-none" : "cursor-pointer pItems rounded-none"
+            currentPage === 1
+              ? "bg-[var(--primary-color)] border-none cursor-pointer pagination-active rounded-none"
+              : "cursor-pointer pItems rounded-none"
           }
         >
           1
@@ -51,7 +53,9 @@ export default function PaginationComp({
             isActive={currentPage === i}
             onClick={() => setCurrentPage(i)}
             className={
-              currentPage === i ? "bg-[var(--primary-color)] cursor-pointer border-none pagination-active rounded-none" : "cursor-pointer pItems rounded-none"
+              currentPage === i
+                ? "bg-[var(--primary-color)] cursor-pointer border-none pagination-active rounded-none"
+                : "cursor-pointer pItems rounded-none"
             }
           >
             {i}
