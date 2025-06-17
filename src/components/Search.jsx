@@ -56,7 +56,7 @@ export default function Login() {
   }
 
   return (
-    <div className="m-auto mt-[27px] flex items-center justify-center">
+    <div className="m-auto mt-[27px] flex items-center justify-center w-full">
       <form
         action=""
         onSubmit={handleSubmit}
@@ -86,7 +86,7 @@ export default function Login() {
             onBlur={() => {
               setTimeout(() => setFocused(false), 100);
             }}
-            className="jakarta font-medium w-full placeholder:text-[11px] lg:text-[20px] placeholder-(--placeholder-color) focus:outline-none lg:placeholder:text-[21px] placeholder:font-[jakarta] placeholder:font-medium"
+            className="jakarta font-medium w-full placeholder:text-[11px] lg:text-[20px] placeholder-(--placeholder-color) focus:outline-none lg:placeholder:text-[21px] placeholder:font-[jakarta] placeholder:font-medium lg:pt-2.5 lg:pb-3.5"
           />
 
           {query ? (
