@@ -48,7 +48,7 @@ export default function Navbar() {
           </div>
 
           <div>
-            <div className="lg:hidden" onClick={() => setShowNav(!showNav)}>
+            <div className="lg:hidden cursor-pointer" onClick={() => setShowNav(!showNav)}>
               <Image
                 src={!showNav ? "menu.svg" : "closeMenu.svg"}
                 width={31}

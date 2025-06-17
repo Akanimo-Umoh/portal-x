@@ -8,17 +8,7 @@ export default function Home() {
       <div>
         <section className="mt-[33px] lg:text-center">
           <div className="lg:flex lg:flex-col-reverse">
-            {/* <div className="mr-auto ml-auto flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[358px] lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px]">
-              <Image src="search.svg" width={17} height={17} alt="search" className="lg:w-[30px] lg:h-[30px]" />
 
-              <input
-                type="search"
-                placeholder="Search events near you—by vibe, city, or name..."
-                className="pt-3.5 pb-4 w-full placeholder:text-[11px] placeholder-(--placeholder-color) focus:outline-none lg:placeholder:text-[20px] lg:pt-[27px] lg:pb-[24px]"
-              />
-
-              <Image src="close.svg" width={18} height={18} alt="Clear search" className="lg:w-[33px] lg:h-[33px]" />
-            </div> */}
             <Search />
 
             <div className="jakarta ml-6 mr-9 mt-[33px] lg:mt-[54px] sm:text-center mediumCenter">
