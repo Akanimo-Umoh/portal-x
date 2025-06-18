@@ -18,14 +18,15 @@ export default function EventsPage() {
 
   return (
     <div>
-      <div className="border-t border-(--border-col) ml-auto mr-auto mt-[24.8px] pt-5 w-[359px] flex flex-col lg:flex-row lg:gap-10 flex-wrap items-center justify-center lg:ml-[66px] lg:mr-[73px] lg:mt-[60px] lg:pt-[66px] lg:w-auto md:w-[740px] md:justify-between md:flex-row md:gap-2.5 small-card mdCard">
+      <div className="ml-auto mr-auto mt-[24.8px] flex flex-col lg:flex-row lg:gap-10 flex-wrap items-center justify-center lg:ml-[66px] lg:mr-[73px] lg:mt-[60px] lg:pt-[66px] lg:w-auto md:w-full md:justify-between md:flex-row md:gap-1.5 small-card mdCard w-auto pl-6 pr-6">
+        <div className="border-t border-(--border-col) w-full pt-5"></div>
         <p className="text-(--primary-color) text-[22.27px] font-medium w-full jakarta hidden lg:block mb-[15px]">
           Upcoming Events
         </p>
 
         {currentEvents.map((event, index) => (
           <div
-            className="mb-7.5 lg:mb-[32px] w-[359px] ml-auto mr-auto lg:w-[407px] lg:h-full lg:flex lg:flex-col lg:justify-evenly small-card mdCardCtn"
+            className="mb-7.5 lg:mb-[32px] w-full ml-auto mr-auto md:w-[358px] lg:w-[407px] lg:h-full lg:flex lg:flex-col lg:justify-evenly small-card mdCardCtn"
             key={index}
           >
             {/* date container */}
@@ -51,8 +52,9 @@ export default function EventsPage() {
                 />
               </div>
 
-              <div className="jakarta min-w-[165px] lg:max-w-[362px] flex-1 lg:min-h-[153px] lg:mb-[29px] eventsDescription">
-                <div className="w-[165px] lg:w-auto lg:min-h-[153px] lg:flex lg:flex-col lg:justify-between eventsDescription descriptionBox">
+              <div className="jakarta w-full lg:max-w-[362px] flex-1 lg:min-h-[153px] lg:mb-[29px] eventsDescription">
+                <div className="w-full lg:w-auto lg:min-h-[153px] lg:flex lg:flex-col lg:justify-between eventsDescription descriptionBox pl-2
+                 pr-2">
                   <div className="lg:flex lg:flex-col lg:h-[120px] lg:justify-start gap-[15px]">
                     <p className="text-[15px] text-(--primary-text) lg:hidden font-bold line-clamp-2">
                       {event.title}
@@ -62,7 +64,7 @@ export default function EventsPage() {
                       {event.subtitle}
                     </p>
 
-                    <p className="text-[11px] font-medium text-(--gray-100) mt-[9px] lg:leading-5 lg:mt-0 lg:text-[15px] lg:w-[310px] line-clamp-2">
+                    <p className="text-[11px] font-medium text-(--gray-100) mt-[9px] lg:leading-5 lg:mt-0 lg:text-[15px] lg:w-[310px] line-clamp-2 mdDesc">
                       {event.description}
                     </p>
                   </div>
