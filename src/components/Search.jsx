@@ -60,9 +60,9 @@ export default function Login() {
       <form
         action=""
         onSubmit={handleSubmit}
-        className="w-full flex flex-col items-center justify-center"
+        className="w-full flex flex-col items-center justify-center pl-6 pr-6"
       >
-        <div className="flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-[340px] sm:w-[358px] sm:px-5 lg:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px] h-12 lg:h-auto small-screenSearch">
+        <div className="flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-full md:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px] h-12 lg:h-auto">
           <p className="w-[17px] h-[17px] lg:w-[30px] lg:h-[30px]">
             <Image
               src="search.svg"

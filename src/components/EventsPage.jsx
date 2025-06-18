@@ -41,7 +41,7 @@ export default function EventsPage() {
 
             {/* events container */}
             <div className="rounded-3xl mt-3 flex items-center justify-between bg-(--dark-bg) pr-[27px] lg:w-full lg:max-w-[407px] lg:flex-col lg:pt-2.5 lg:pl-2.5 lg:pr-2.5 lg:mt-[33px] lg:gap-[31px] lg:items-center lg:h-full lg:justify-evenly events-ctn eventCard">
-              <div className="flex-1 min-w-[142px] lg:flex lg:justify-center lg:items-center lg:min-w-[388px] lg:h-[217px] mr-6 lg:mr-0 lg:overflow-hidden lg:rounded-[20px] lg:flex-none events-ctnImg">
+              <div className="flex-1 min-w-[142px] w-full lg:flex lg:justify-center lg:items-center lg:min-w-[388px] lg:h-[217px] mr-6 lg:mr-0 lg:overflow-hidden lg:rounded-[20px] lg:flex-none events-ctnImg">
                 <Image
                   src={event.image}
                   width={142}
