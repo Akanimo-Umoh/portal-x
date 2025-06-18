@@ -238,13 +238,13 @@
   }
 }
 
-@media (min-width: 400px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .eventCard {
     @apply flex-col w-[200px] pb-[10px] pr-0;
   }
-  
+
   .mdCard {
-    @apply flex-row w-full justify-between gap-[2%];
+    @apply flex-row w-full justify-between gap-[10px];
   }
 
   .mdCardCtn {
@@ -272,8 +272,8 @@
   }
 }
 
-@media (min-width: 500px) and (max-width: 767px) {
+/* @media (min-width: 500px) and (max-width: 767px) {
   .mdCard {
-    @apply gap-[0.1%] w-[500px];
+    @apply gap-[0.1%];
   }
-}
+} */
