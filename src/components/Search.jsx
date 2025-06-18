@@ -158,8 +158,8 @@ export default function Login() {
         {/* recent search cotn */}
         {!query && focused && recentSearches.length > 0 && (
           <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] h-full transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in">
-            <div className="absolute top-0 bg-[var(--background)] w-full flex items-center justify-center lg:w-[647px]">
-              <div className="w-full font-semibold sm:w-full lg:w-[647px] small-screenRecent pt-4 pb-4 mr-6 ml-6">
+            <div className="absolute top-0 bg-[var(--background)] w-full flex items-center justify-center md:w-[647px]">
+              <div className="w-full font-semibold sm:w-full md:w-[647px] small-screenRecent pt-4 pb-4 mr-6 ml-6 md:mr-0 md:ml-0">
                 <p className="text-[var(--primary-color)] text-sm lg:text-[18px] mb-2 jakarta lg:text-left">
                   Recent Search
                 </p>
