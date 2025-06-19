@@ -226,7 +226,7 @@
   }
 
   .events-ctn {
-    @apply w-full gap-4;
+    @apply w-full gap-5;
   }
 
   .eventsDescription {
