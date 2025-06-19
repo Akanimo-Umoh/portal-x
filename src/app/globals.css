@@ -226,11 +226,7 @@
   }
 
   .events-ctn {
-    @apply w-full pr-0;
-  }
-
-  .events-ctnImg {
-    @apply mr-3;
+    @apply w-full pr-2 gap-2;
   }
 
   .eventsDescription {
@@ -260,7 +256,7 @@
   }
 
   .descriptionBox {
-    @apply mt-2 mb-2;
+    @apply mt-2 mb-2 pl-2 pr-2;
   }
 
   .mdDesc {

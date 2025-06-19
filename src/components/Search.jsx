@@ -62,23 +62,19 @@ export default function Login() {
         onSubmit={handleSubmit}
         className="w-full flex flex-col items-center justify-center pl-6 pr-6"
       >
-        <div className="flex items-center justify-between gap-2.5 bg-white px-3.5 rounded-[50px] input-shadow jakarta font-medium w-full md:w-[647px] lg:gap-[14.46px] lg:pl-6 lg:pr-7 lg:mt-[49px] h-12 lg:h-auto">
-          <p className="w-[17px] h-[17px] lg:w-[30px] lg:h-[30px]">
-            <Image
-              src="search.svg"
-              width={17}
-              height={17}
-              alt="search"
-              className="lg:w-[30px] lg:h-[30px] cursor-pointer"
-            />
-          </p>
-          {/* )} */}
+        <div className="flex items-center justify-between gap-2.5 bg-white pl-3.5 pr-4 rounded-[50px] input-shadow jakarta font-medium w-full md:w-[647px] lg:gap-[23px] lg:pl-[25px] lg:pr-7 lg:mt-[49px] h-12 lg:h-auto py-[25px]">
+          <Image
+            src="search.svg"
+            width={17}
+            height={17}
+            alt="search"
+            className="lg:w-[30px] lg:h-[30px] cursor-pointer"
+          />
 
           <input
             ref={inputRef}
             type="text"
             id="search"
-            autoComplete="off"
             value={query}
             placeholder="Search events near you—by vibe, city, or name..."
             onChange={(e) => setQuery(e.target.value.toLowerCase())}
@@ -86,7 +82,7 @@ export default function Login() {
             onBlur={() => {
               setTimeout(() => setFocused(false), 100);
             }}
-            className="jakarta font-medium w-full placeholder:text-[11px] lg:text-[20px] placeholder-(--placeholder-color) focus:outline-none lg:placeholder:text-[21px] placeholder:font-[jakarta] placeholder:font-medium lg:pt-2.5 lg:pb-3.5"
+            className="jakarta font-medium w-full placeholder:text-[11px] text-[12.5px] leading-[18.75px] lg:text-[20px] placeholder-(--placeholder-col) focus:outline-none lg:placeholder:text-[21px] placeholder:font-[jakarta] placeholder:font-medium"
           />
 
           {query ? (

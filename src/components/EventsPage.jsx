@@ -34,14 +34,14 @@ export default function EventsPage() {
               <p className="w-3.5 h-3.5 bg-(--primary-color) rounded-full flex items-center justify-center"></p>
 
               <p className="text-[13px] font-extrabold text-(--primary-text) jakarta flex items-center justify-center pt-0.5 lg:text-[21.93px]">
-                20-23 &nbsp;<span className="font-medium">Nov, 2025</span>
+                20-23 &nbsp;<span className="font-medium">Nov</span>
               </p>
               {/* {new Date().getUTCFullYear()} */}
             </div>
 
             {/* events container */}
-            <div className="rounded-3xl mt-3 flex items-center justify-between bg-(--dark-bg) pr-[27px] lg:w-full lg:max-w-[407px] lg:flex-col lg:pt-2.5 lg:pl-2.5 lg:pr-2.5 lg:mt-[33px] lg:gap-[31px] lg:items-center lg:h-full lg:justify-evenly events-ctn eventCard card-ctn">
-              <div className="flex-1 min-w-[142px] w-full lg:flex lg:justify-center lg:items-center lg:min-w-[388px] lg:h-[217px] mr-6 lg:mr-0 lg:overflow-hidden lg:rounded-[20px] lg:flex-none events-ctnImg">
+            <div className="rounded-3xl mt-3 flex gap-6 items-center justify-between bg-(--dark-bg) pr-[27px] lg:w-full lg:max-w-[407px] lg:flex-col lg:pt-2.5 lg:pl-2.5 lg:pr-2.5 lg:mt-[33px] lg:gap-[31px] lg:items-center lg:h-full lg:justify-evenly events-ctn eventCard card-ctn">
+              <div className="flex-1 min-w-[142px] w-full lg:flex lg:justify-center lg:items-center lg:min-w-[388px] lg:h-[217px] lg:overflow-hidden lg:rounded-[20px] lg:flex-none">
                 <Image
                   src={event.image}
                   width={142}
@@ -53,8 +53,7 @@ export default function EventsPage() {
               </div>
 
               <div className="jakarta w-full lg:max-w-[362px] flex-1 lg:min-h-[153px] lg:mb-[29px] eventsDescription">
-                <div className="w-full lg:w-auto lg:min-h-[153px] lg:flex lg:flex-col lg:justify-between eventsDescription descriptionBox pl-2
-                 pr-2">
+                <div className="w-full lg:w-auto lg:min-h-[153px] lg:flex lg:flex-col lg:justify-between eventsDescription descriptionBox">
                   <div className="lg:flex lg:flex-col lg:h-[120px] lg:justify-start gap-[15px]">
                     <p className="text-[15px] text-(--primary-text) lg:hidden font-bold line-clamp-2">
                       {event.title}
@@ -64,7 +63,7 @@ export default function EventsPage() {
                       {event.subtitle}
                     </p>
 
-                    <p className="text-[11px] font-medium text-(--gray-100) mt-[9px] lg:leading-5 lg:mt-0 lg:text-[15px] lg:w-[310px] line-clamp-2 mdDesc">
+                    <p className="text-[11px] font-medium text-(--gray-100) mt-[9px] leading-[14.41px] lg:leading-5 lg:mt-0 lg:text-[15px] lg:w-[310px] line-clamp-2 mdDesc h-[28px] lg:h-[40px]">
                       {event.description}
                     </p>
                   </div>
