@@ -2,7 +2,7 @@
 
 import events from "@/components/events";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Login() {
   const [query, setQuery] = useState("");
@@ -55,6 +55,23 @@ export default function Login() {
     );
   }
 
+  // disable scroll on main page when query is active
+  useEffect(() => {
+    const isLargeScreen = window.matchMedia("(min-width: 1024px)").matches;
+
+    if (!isLargeScreen && (query || (focused && recentSearches.length > 0))) {
+      // Disable scroll on mobile
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scroll on desktop or when not focused
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [query, focused, recentSearches]);
+
   return (
     <div className="m-auto lg:mt-[27px] flex items-center justify-center w-full">
       <form
@@ -74,13 +91,13 @@ export default function Login() {
                 className="lg:w-[30px] lg:h-[30px] cursor-pointer"
               />
             ) : ( */}
-              <Image
-                src="search.svg"
-                width={17}
-                height={17}
-                alt="search"
-                className="lg:w-[30px] lg:h-[30px] cursor-pointer"
-              />
+            <Image
+              src="search.svg"
+              width={17}
+              height={17}
+              alt="search"
+              className="lg:w-[30px] lg:h-[30px] cursor-pointer"
+            />
             {/* )} */}
 
             <input
@@ -114,65 +131,67 @@ export default function Login() {
 
         {/* search query results */}
         {query && (
-          <div className="w-full relative flex flex-col items-center justify-center bg-[var(--background)] lg:w-[647px] transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in">
-            <div className="space-y-[23px] absolute top-0 bg-[var(--background)] h-[calc(100vh-142px)] lg:h-auto w-full flex flex-col items-center justify-baseline pt-4 pb-4 lg:pl-[41px] lg:pr-[41px] lg:pb-[45px] lg:pt-[45px] lg:rounded-[29px] lg:max-h-[640px] overflow-y-auto lg:mt-2.5 hideScroll shadow-md pl-6 pr-6">
-              {events
-                .filter((event) => event.title.toLowerCase().includes(query))
-                .map((event, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="hover:underline text-[var(--primary-text)] flex items-center justify-between w-full lg:w-full small-screenRecent md:w-[647px]"
-                    >
-                      <Image
-                        src="/recentSearch.svg"
-                        width={20}
-                        height={20}
-                        alt="recent"
-                        onClick={() => {
-                          handleSubmit(null, search);
-                          inputRef.current?.blur();
-                        }}
-                        className="cursor-pointer"
-                      />
-
-                      <p
-                        onClick={() => {
-                          handleSubmit(null, search);
-                          inputRef.current?.blur();
-                        }}
-                        className="w-full pl-[22px] text-sm font-medium flex items-center justify-start lg:text-[18px] jakarta"
+          <div className="w-full fixed z-50 lg:relative bottom-0 lg:bottom-auto flex flex-col items-center justify-center lg:w-[647px] transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in box-border md:h-[calc(100vh-210px)] lg:h-auto">
+            <div className="lg:absolute top-0 w-full lg:max-h-[640px] lg:overflow-hidden lg:flex lg:rounded-[29px] lg:pt-[45px] lg:pb-[45px] lg:px-[41px] bg-[var(--dark-bg)] pb-[40px] mb-[40px] lg:mb-0 search-shadow">
+              <div className="space-y-[23px] h-[calc(100vh-142px)] lg:h-auto w-full flex flex-col items-center justify-baseline pt-4 pb-4 lg:pl-0 lg:pr-0 lg:pb-4 overflow-hidden overflow-y-auto hideScroll pl-6 pr-6">
+                {events
+                  .filter((event) => event.title.toLowerCase().includes(query))
+                  .map((event, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="hover:underline text-[var(--primary-text)] flex items-center justify-between w-full lg:w-full small-screenRecent md:w-[647px]"
                       >
-                        {highlightMatch(event.title, query)}
-                      </p>
+                        <Image
+                          src="/recentSearch.svg"
+                          width={20}
+                          height={20}
+                          alt="recent"
+                          onClick={() => {
+                            handleSubmit(null, search);
+                            inputRef.current?.blur();
+                          }}
+                          className="cursor-pointer"
+                        />
 
-                      <Image
-                        src="/upArrow.svg"
-                        width={20}
-                        height={20}
-                        alt="search"
-                        className="cursor-pointer"
-                        onClick={() => {
-                          setQuery(search);
-                          inputRef.current?.focus();
-                        }}
-                      />
-                    </div>
-                  );
-                })}
+                        <p
+                          onClick={() => {
+                            handleSubmit(null, search);
+                            inputRef.current?.blur();
+                          }}
+                          className="w-full pl-[22px] text-sm font-medium flex items-center justify-start lg:text-[18px] jakarta"
+                        >
+                          {highlightMatch(event.title, query)}
+                        </p>
+
+                        <Image
+                          src="/upArrow.svg"
+                          width={20}
+                          height={20}
+                          alt="search"
+                          className="cursor-pointer"
+                          onClick={() => {
+                            setQuery(search);
+                            inputRef.current?.focus();
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
           </div>
         )}
 
         {/* recent search cotn */}
         {!query && focused && recentSearches.length > 0 && (
-          <div className="w-full relative flex flex-col items-center justify-center shadow-md bg-[var(--background)] h-full transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in">
-            <div className="absolute top-0 bg-[var(--background)] w-full flex items-center justify-center md:w-[647px] lg:max-h-[640px]">
-              <div className="w-full font-semibold sm:w-full md:w-[647px] small-screenRecent pt-4 pb-4 mr-6 ml-6 lg:mr-6 lg:ml-6 md:mr-0 md:ml-0">
+          <div className="w-full fixed z-50 bottom-0 lg:relative lg:bottom-auto flex flex-col items-center justify-baseline bg-[var(--dark-bg)] transition-all duration-300 ease-in-out transform opacity-0 translate-y-2 animate-fade-in lg:w-[647px]">
+            <div className="bg-[var(--dark-bg)] w-full flex items-start justify-baseline md:w-[647px] lg:max-h-[640px] h-[calc(100vh-142px)] lg:h-auto lg:absolute rounded-[29px] search-shadow lg:px-[41px] lg:pb-[45px] lg:pt-[45px] lg:flex top-0 overflow-hidden">
+              <div className="w-full lg:h-auto font-semibold sm:w-full md:w-[647px] small-screenRecent pt-4 pb-4 mr-6 ml-6 lg:mr-6 lg:ml-6 md:mr-0 md:ml-0 lg:p-0 lg:m-0 lg:pb-4 overflow-hidden overflow-y-auto">
                 <p className="text-[var(--primary-color)] text-sm lg:text-[18px] mb-2 jakarta lg:text-left">
                   Recent Search
                 </p>
-                <div className="space-y-[23px] w-full flex flex-col items-center justify-center pt-4 pb-4">
+                <div className="space-y-[23px] w-full flex flex-col items-center justify-baseline pt-4 pb-4">
                   {recentSearches.map((search, index) => (
                     <div
                       key={index}
